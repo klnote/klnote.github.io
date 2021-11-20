@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="作为可乐klelee的笔记站，来记录可乐的各种笔记">
+    <meta name="keyword"  content="编程 Archlinux Linux">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Git note - klelee笔记
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> klelee/klnote </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>可乐klelee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git%E7%AC%94%E8%AE%B0"><span class="toc-text">git笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93"><span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%85%89%E6%9C%BA%E7%A9%BF%E6%A2%AD"><span class="toc-text">时光机穿梭</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="toc-text">版本回退</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-text">工作区和暂存区</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%EF%BC%88working-Directory%EF%BC%89"><span class="toc-text">工作区（working Directory）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%BA%93%EF%BC%88Repository%EF%BC%89"><span class="toc-text">版本库（Repository）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E4%BF%AE%E6%94%B9"><span class="toc-text">管理修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9"><span class="toc-text">撤销修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="toc-text">删除文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">添加远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-text">将本地仓库推送到远程仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E5%BA%93"><span class="toc-text">删除远程库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-text">分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#switch"><span class="toc-text">switch</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-text">解决冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%AD%96%E7%95%A5"><span class="toc-text">分支管理策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E7%A6%81%E7%94%A8-Fast-forword%E6%A8%A1%E5%BC%8F"><span class="toc-text">强制禁用 Fast forword模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug%E5%88%86%E6%94%AF"><span class="toc-text">bug分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#feature%E5%88%86%E6%94%AF"><span class="toc-text">feature分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C"><span class="toc-text">多人协作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%88%86%E6%94%AF"><span class="toc-text">推送分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%93%E5%8F%96%E5%88%86%E6%94%AF"><span class="toc-text">抓取分支</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86"><span class="toc-text">标签管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE"><span class="toc-text">创建标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%A0%87%E7%AD%BE"><span class="toc-text">操作标签</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> klelee/klnote </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Git note
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-10-05 19:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Git" title="Git">Git</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="git笔记"><a href="#git笔记" class="headerlink" title="git笔记"></a>git笔记</h1><h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir &lt;repository name&gt;    <span class="comment">## 建立仓库</span></span><br><span class="line"><span class="built_in">cd</span> &lt;repository name&gt;     <span class="comment">## 必须先进入，然后初始化</span></span><br><span class="line">git init    <span class="comment">## 初始化该仓库</span></span><br></pre></td></tr></table></figure>
+
+<p>建立并初始化目录后，在当前目录下会生成一个<code>.git</code>的文件夹，在Windows端会显示，Linux端点开头文件为隐藏文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file name&gt;    <span class="comment">## 向缓冲区添加一个文件</span></span><br><span class="line">git commit -m <span class="string">&quot;当次上传说明（建议填写且有意义）&quot;</span>    <span class="comment">## 提交到仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="时光机穿梭"><a href="#时光机穿梭" class="headerlink" title="时光机穿梭"></a>时光机穿梭</h2><p><code>git status</code>  返回当前仓库的状态</p>
+<p><code>git diff</code>  查看本地文件和仓库中的文件的difference</p>
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><p><code>git log</code>  可以查看从最近到最远的提交日志，可以添加参数<code>--pretty=oneline</code> 使每条信息只显示一行</p>
+<p>版本回退首先要明白回退到哪个版本，在git中庸HEAD表示当前的版本，所以上一个版本就是HEAD^，上上一个版本就是HEAD^^，往后就不会这么写了，写成HEAD~100</p>
+<p><code>git reset --hard HEAD^</code>  表示回退到上一个版本</p>
+<p>那么回退到上一个版本之后后悔了怎么办呢？</p>
+<p><code>git reset --haed &lt;之前的版本的commit号（输入前几位能区分就行）&gt;</code>  就可以后悔了</p>
+<h3 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h3><h4 id="工作区（working-Directory）"><a href="#工作区（working-Directory）" class="headerlink" title="工作区（working Directory）"></a>工作区（working Directory）</h4><p>电脑里能看到的目录，就是当前文件夹</p>
+<h4 id="版本库（Repository）"><a href="#版本库（Repository）" class="headerlink" title="版本库（Repository）"></a>版本库（Repository）</h4><p>就是工作区的<code>.git</code>文件夹。这个不算是工作区，是版本库。</p>
+<p>Git的版本库有很多东西，最重要的是stage（或者叫index）的<strong>暂存区</strong>，还有第一个分支master以及指向该分支的指针HEAD。</p>
+<p>当使用git add的时候,实际上是给文件一个指针存到stage里面去</p>
+<p>然后使用commit的时候,再把该指针提交到分支当中去</p>
+<h3 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h3><p>git管理的是一次次的修改,所以每一个文件,逢修改必添加,若第一次修改之后添加过,而后再修改,未添加就提交,那么提交的只是第一次的修改</p>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><ol>
+<li>撤销工作区的修改,也就是恢复到最后一次add或者commit的版本</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git restore &lt;file name&gt;</span><br><span class="line">git checkout -- &lt;file name&gt;</span><br><span class="line">效果相同</span><br></pre></td></tr></table></figure>
+
+<p>注:restore是git 2.23版本新增的命令,用来代替身兼多职的git checkout.功能是一样的</p>
+<ol start="2">
+<li>当需要回退暂存区时(此时文件已经add到暂存区,还未进行commit)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged&lt;file name&gt;</span><br><span class="line">git reset HEAD&lt;file name&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>先删除本地文件</p>
+<p><code>rm &lt;file name&gt;</code> 此时<code>git status</code> 晓得你在工作区已经删除了此文件,他会给出两个选择:</p>
+<ol>
+<li><p>从版本库彻底删除</p>
+<p><code>git rm &lt;file name&gt;</code></p>
+</li>
+<li><p>误删,需要恢复到本地工作区</p>
+<p><code>git checkout --&lt;file name&gt;</code>  (过时)</p>
+<p><code>git restore &lt;file name&gt;</code> </p>
+</li>
+</ol>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>配置SSH</p>
+<p>在用户目录下<code> ssh-keygen -t rsa -C &quot;klelee@outlook.com&quot;</code>所有选项回车默认</p>
+<p>然后在用户目录下会生成.ssh文件夹,里面会有id_rsa and id_rsa.pub</p>
+<p>其中id_rsa.pub中就是公钥,另外一个问价夹中是私钥</p>
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>在github或者gitee建立新的仓库</p>
+<h4 id="将本地仓库推送到远程仓库"><a href="#将本地仓库推送到远程仓库" class="headerlink" title="将本地仓库推送到远程仓库"></a>将本地仓库推送到远程仓库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://gitee.com/klelee/learngit.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>上面推送的命令中u参数,表示不但上传了所有的文件,还将本地的master分支与远程的master分支进行了绑定</p>
+<p>之后本地进行修改之后,可以通过</p>
+<p><code>git push origin master</code>进行推送</p>
+<h4 id="删除远程库"><a href="#删除远程库" class="headerlink" title="删除远程库"></a>删除远程库</h4><p>想要删除一个远程库可以使用git remote rm <name>命令.使用前可以查看远程库的信息:</p>
+<p><code>git remote -v</code></p>
+<p>这样子的删除,只是删除了本地库和远程库之间的联系,本地库和远程库本身都还是存在的,要删除真正的远程库,需要登陆到远程库进行删除.</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><ol>
+<li><p>创建新的分支并切换到新分支</p>
+<p><code>git cheackout -b dev</code> </p>
+<p>git checkout 加上-b命令表示，创建并切换到新分支，相当于两条命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev</span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>然后可以用git branch来查看当前分支：</p>
+<p><code>git branch</code>它会列出所有的分支，并在当前分支前面用星号标示</p>
+<hr>
+<p>这样，之后的所有操作就是在dev分支上进行了</p>
+<hr>
+<p>当在新分支上的工作结束时，要将新的分支合并到master分支上</p>
+<p>切换回到master分支<code>git checkout master</code></p>
+<p>合并两个分支<code>git merge dev</code></p>
+<p>合并之后删除新的分支<code>git branch -d dev</code></p>
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><p>git在新版本中提供了新的切换分支的方式</p>
+<p><code>git switch -c dev</code> 可以创建并切换到dev分支</p>
+<p>分支之间的切换<code>git switch dev</code></p>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>假设在新的分支<code>feature1</code>上做了修改并添加提交，然后回到master分支，此时git还会提示我们当前的master比远程的master分支要超前一个提交，此时在master上修改。然后，master和新的分支feature1都有了新的提交，这种情况下git无法快速合并，若试图把各自的修改合并起来就会产生冲突。</p>
+<p>所以，在遇到这种情况的时候就需要在文件中手动修改了。</p>
+<h3 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h3><h4 id="强制禁用-Fast-forword模式"><a href="#强制禁用-Fast-forword模式" class="headerlink" title="强制禁用 Fast forword模式"></a>强制禁用 Fast forword模式</h4><p>在禁用fast froword的情况下，git在merge的时候就会生成一个新的commit，这样，在分支历史上就可以看出分支信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git switch -c dev</span><br><span class="line">## 操作</span><br><span class="line">git add &lt;file&gt;</span><br><span class="line">git commit -m &quot;reason&quot;</span><br><span class="line">git switch master</span><br><span class="line">git merge --no-ff -m &quot;merge with no-ff&quot; dev ## 禁用fast forword的合并</span><br></pre></td></tr></table></figure>
+
+<p>在上面合并中，使用-m参数做上传说明使用为no-ff上传本身就带有一次commit</p>
+<h3 id="bug分支"><a href="#bug分支" class="headerlink" title="bug分支"></a>bug分支</h3><p>假设你在工作中突然接到命令需要修改一个其他的bug，此时？？？</p>
+<p>首先，需要将现在手头的工作放下：<code>git stash</code> 可以将当前的进度保存</p>
+<p>然后你就可以去你需要修改bug的分支，创建一个新的分支去修改bug了，加入你的bug在master分支上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git switch master</span><br><span class="line">git switch -c dev</span><br><span class="line">## 修改bug</span><br><span class="line">## bug修改完成</span><br><span class="line">git switch master</span><br><span class="line">git merge --no-ff -m &quot;fixed bug&quot; dev</span><br><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
+
+<p>然后返回到你之前工作的分支，用<code>git stash list</code>可以查看你保存的工作进度，</p>
+<p>使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（1） </span><br><span class="line">git stash apply ## 可以恢复你的工作进度，但是不会删除内存上存储的你的进度，需要使用</span><br><span class="line">git stash drop  ## 释放存在内存上你的进度</span><br><span class="line">（2）</span><br><span class="line">git stash pop  ## 可以直接从内存中提取出你的工作进度</span><br></pre></td></tr></table></figure>
+
+<p>反思：既然master分支上出现了bug，那么早期的dev分支的代码应该也有bug才对，那么早期dev分支的bug怎么办呢？</p>
+<p>这里只需要把刚刚在master修改bug的commit复制到dev，只复制他的修改。这里git提供了一个cherry-pick命令，可以复制一个特定的提交到当前分支</p>
+<h3 id="feature分支"><a href="#feature分支" class="headerlink" title="feature分支"></a>feature分支</h3><p>开发新功能需要开辟的新的分支</p>
+<p>在新分支中，对于已经添加并提交的修改，要删除需要强制删除使用参数-D</p>
+<h3 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h3><h4 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h4><p><code>git push origin master</code>  主分支，时刻与远程同步</p>
+<p><code>git push origin dev</code>  开发分支，团队需要在dev分支上面工作，因此需要远程同步</p>
+<p>bug分支，只用于修复bug不用同步</p>
+<p>feature分支要不要推送取决于新功能你一个人能都开发的了</p>
+<h4 id="抓取分支"><a href="#抓取分支" class="headerlink" title="抓取分支"></a>抓取分支</h4><p><code>git pull</code> 多人协作时，当你和你的伙伴同时对一个文件进行修改，你的伙伴先push，那么你就得，先将最新的修改pull下来，在本地进行合并，如果合并有冲突，先解决冲突，然后进行提交</p>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p><code>git tag &lt;tag name&gt;</code> 创建一个新标签，在当前分支的最近一次提交上</p>
+<p><code>git tag &lt;tag name&gt; &lt;commit code&gt;</code>  创建一个新标签，在当前分支的制定commit上</p>
+<p><code>git tag</code> 查看所有标签</p>
+<p><code>git show &lt;tag name&gt;</code> 查看标签信息</p>
+<h3 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h3><p>如果一个标签打错了，可以删除<code>git tag -d &lt;tag name&gt;</code></p>
+<p>推送某个标签到远程<code>git push origin &lt;tag name&gt;</code></p>
+<p>或者一次性将所有标签都推送到远程<code>git push origin --tags</code></p>
+<p>但是如果标签已经推送到远程再想要删除，就得先删除本地标签，然后在删除远程标签<code>git push origin :refs/tags/&lt;tag name&gt;</code></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/KLEricLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/可乐">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/可乐klelee">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/Eric Lee">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/klvie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://klelee.com">klvie</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

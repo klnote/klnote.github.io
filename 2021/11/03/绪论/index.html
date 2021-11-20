@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="作为可乐klelee的笔记站，来记录可乐的各种笔记">
+    <meta name="keyword"  content="编程 Archlinux Linux">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        绪论 - klelee笔记
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> klelee/klnote </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>可乐klelee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-text">第一章 绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%A0%94%E7%A9%B6%E5%86%85%E5%AE%B9"><span class="toc-text">1.1 数据结构的研究内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="toc-text">1.2 基本概念和术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-%E6%95%B0%E6%8D%AE%E3%80%81%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0%E3%80%81%E6%95%B0%E6%8D%AE%E9%A1%B9%E3%80%81%E6%95%B0%E6%8D%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">1.2.1 数据、数据元素、数据项、数据对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="toc-text">1 逻辑结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-text">2 存储结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.2.3 数据类型和抽象数据类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-text">1.3 抽象数据类型的表示和实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E7%AE%97%E6%B3%95%E5%92%8C%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-text">1.4 算法和算法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-1-%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E7%89%B9%E6%80%A7"><span class="toc-text">1.4.1 算法的定义及特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-2-%E8%AF%84%E4%BB%B7%E7%AE%97%E6%B3%95%E4%BC%98%E5%8A%A3%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A0%87%E5%87%86"><span class="toc-text">1.4.2 评价算法优劣的基本标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-3-%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">1.4.3 算法的时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">算法的空间复杂度</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> klelee/klnote </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        绪论
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-11-03 19:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#数据结构" title="数据结构">数据结构</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p>数据结构主要研究内容：如何合理地组织数据、高效的处理数据。</p>
+<h2 id="1-1-数据结构的研究内容"><a href="#1-1-数据结构的研究内容" class="headerlink" title="1.1 数据结构的研究内容"></a>1.1 数据结构的研究内容</h2><p>计算机进行数据计算时，一般经历以下步骤：</p>
+<ol>
+<li>从具体问题抽象出数学模型</li>
+<li>设计一个解决数学模型的算法</li>
+<li>最后编写程序，进行测试、调试，直到解决问题</li>
+</ol>
+<h2 id="1-2-基本概念和术语"><a href="#1-2-基本概念和术语" class="headerlink" title="1.2 基本概念和术语"></a>1.2 基本概念和术语</h2><h3 id="1-2-1-数据、数据元素、数据项、数据对象"><a href="#1-2-1-数据、数据元素、数据项、数据对象" class="headerlink" title="1.2.1 数据、数据元素、数据项、数据对象"></a>1.2.1 数据、数据元素、数据项、数据对象</h3><p><strong>数据（Data）</strong> 是客观事物的符号表示，是所有能输入到计算机中并被计算机程序处理的符号的总称</p>
+<p><strong>数据元素（Data Element）</strong> 是数据的基本单位、在计算机中通常作为一个整体进行考虑和处理。在有些情况下，数据元素亦可以成为记录或元素。</p>
+<p><strong>数据项（Data Item）</strong> 是组成数据元素的、有独立含义的、不可分割的最小单位。</p>
+<p><strong>数据对象（Data Object）</strong> 是性质相同的数据元素的集合，是数据的一个子集。</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p><strong>数据结构（Data Structure）</strong>是相互之间存在一种或多种关系的数据元素的集合。</p>
+<h4 id="1-逻辑结构"><a href="#1-逻辑结构" class="headerlink" title="1 逻辑结构"></a>1 逻辑结构</h4><p>逻辑结构是从逻辑关系上描述数据，它与数据的存储无关，是独立与计算机的。因此，逻辑结构可以看作是从具体问题抽象出来的数学模型。 根据数据元素之间关系的不同，可以将逻辑结构分为四种不同的类型:</p>
+<p>（1） 集合结构 —— 数据元素之间除了同属同一集合别无其它关系。</p>
+<p>（2） 线性结构 —— 元素之间存在一对一的关系。</p>
+<p>（3） 树结构 —— 元素之间存在一对多的关系</p>
+<p>（4） 图结构 —— 元素之间存在多对多的关系</p>
+<p><strong>注</strong> 以上分类中，集合、树和图都属于非线性结构，逻辑结构也可分为：线性结构和非线性结构。</p>
+<h4 id="2-存储结构"><a href="#2-存储结构" class="headerlink" title="2 存储结构"></a>2 存储结构</h4><p>数据对象在计算机中的存储表示称为数据的存储结构，也称为物理结构。数据元素在内存中有两种基本的存储结构，分别是顺序存储和链式存储，其代表分别是数组和链表。</p>
+<p>（1） 顺序存储结构：借助元素在存储器中的相对位置来表示数据元素之间的逻辑关系。</p>
+<p>（2） 链式存储结构：链式存储结构将各个数据元素存储在非连续的存储单元中，为了表示结点之间的关系，需要给每个结点附加一个指针字段，用于存储后继元素的地址。</p>
+<h3 id="1-2-3-数据类型和抽象数据类型"><a href="#1-2-3-数据类型和抽象数据类型" class="headerlink" title="1.2.3 数据类型和抽象数据类型"></a>1.2.3 数据类型和抽象数据类型</h3><p><strong>数据类型（Data Type）</strong> 是一个值的集合和定义在这个值集上的一组操作的总称。数据类型明显或隐含地规定了数据的取值范围、存储方式以及允许进行的运算。</p>
+<p><strong>抽象数据类型（Abstract Data Type，ADT）</strong> 一般由用户定义的、表示应用问题的数学模型，以及定义在这个模型上的一组操作的总成。<strong>抽象数据类型</strong>包含三个部分：数据对象、数据对象上关系的集合以及对数据对象的基本操作的集合。其基本定义方式如下：</p>
+<figure class="highlight plaintext"><figcaption><span>Text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ADT 抽象数据类型名&#123;</span><br><span class="line">    数据对象：&#123;数据对象的定义&#125;</span><br><span class="line">    数据关系：&#123;数据关系的定义&#125;</span><br><span class="line">    基本操作：&#123;基本操作的定义&#125;</span><br><span class="line">&#125;ADT 抽象数据类型名;</span><br></pre></td></tr></table></figure>
+<p>基本操作的定义格式为：</p>
+<figure class="highlight plaintext"><figcaption><span>Text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">基本操作名（参数表）</span><br><span class="line">    初始条件：&lt;初始条件描述&gt;</span><br><span class="line">    操作结果：&lt;操作结构描述&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-抽象数据类型的表示和实现"><a href="#1-3-抽象数据类型的表示和实现" class="headerlink" title="1.3 抽象数据类型的表示和实现"></a>1.3 抽象数据类型的表示和实现</h2><p>（挖个坑，随时补充）</p>
+<h2 id="1-4-算法和算法分析"><a href="#1-4-算法和算法分析" class="headerlink" title="1.4 算法和算法分析"></a>1.4 算法和算法分析</h2><h3 id="1-4-1-算法的定义及特性"><a href="#1-4-1-算法的定义及特性" class="headerlink" title="1.4.1 算法的定义及特性"></a>1.4.1 算法的定义及特性</h3><p><strong>算法</strong>是为了解决某类问题而规定的一个<em>有限长</em>的操作序列，一个算法必须满足以下五个特性：</p>
+<ol>
+<li>有穷性</li>
+<li>确定性</li>
+<li>可行性</li>
+<li>输入：零个或多个输入</li>
+<li>输出：一个或多个输出</li>
+</ol>
+<h3 id="1-4-2-评价算法优劣的基本标准"><a href="#1-4-2-评价算法优劣的基本标准" class="headerlink" title="1.4.2 评价算法优劣的基本标准"></a>1.4.2 评价算法优劣的基本标准</h3><ol>
+<li>正确性</li>
+<li>可读性</li>
+<li>健壮性：当输入非法数据时，好的算法能适当地做出正确的反应或进行相应的处理，而不会产生一些莫名奇妙的输出结果。</li>
+<li>高效性：高效性包括时间和空间两个方面。</li>
+</ol>
+<h3 id="1-4-3-算法的时间复杂度"><a href="#1-4-3-算法的时间复杂度" class="headerlink" title="1.4.3 算法的时间复杂度"></a>1.4.3 算法的时间复杂度</h3><p>衡量算法效率的方法主要有两类：事后统计法和事前分析估计法。在实践中，更常使用的是，事前分析估计法。</p>
+<ol>
+<li>问题规模和语句频度</li>
+</ol>
+<p>问题规模：是算法求解问题输入量的多少，是问题大小的本质表示，一般用整数n表示。</p>
+<p>语句频度：一条语句重复执行的次数</p>
+<ol start="2">
+<li>算法时间复杂度的定义</li>
+</ol>
+<p>基本语句：算法中执行次数最多的语句</p>
+<p>一般情况下，算法中基本语句重复执行的次数是问题规模n的某个函数f(n)，算法的时间量度记作：T(n) = O(f(n))    </p>
+<p>它表示随着问题规模n增大，算法执行时间的增长率和f(n)的增长率相同，称作算法的监禁时间复杂度，简称时间复杂度。</p>
+<ol start="3">
+<li>算法时间复杂度分析举例</li>
+</ol>
+<p>基本方法：找出所有语句中语句频度最大的语句作为基本语句，计算基本语句的频度得到问题规模n的某个函数f(n)，取其数量级用符号“O”表示即可。   </p>
+<p><strong>定理1.1</strong> 在计算算法时间复杂度时，可以忽略所低次项和最高次项的系数。</p>
+<p>【例1.5】 常量阶示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x++;</span><br><span class="line">s=o;</span><br></pre></td></tr></table></figure>
+<p>以上两条语句的语句频度都是1，算法的执行时间与问题规模n无关，所以T(n) = O(1)，称为常量阶。</p>
+<p>【例1.6】 线性阶示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;I==)&#123;</span><br><span class="line">    x++;</span><br><span class="line">    s=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>循环体内的语句执行的次数都是f(n) = n，所以T(n) = O(n)，称为线性阶</p>
+<p>【例1.7】 平方阶示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(k = <span class="number">1</span>;k &lt;= n;k ++)&#123;</span><br><span class="line">    x++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(j = <span class="number">1</span>;j &lt;= n;j ++)&#123;</span><br><span class="line">        y++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>y++;</code> 的执行次数为f(n) = n^2，所以算法的时间复杂度T(n) = O(n^2)，称为平方阶</p>
+<p>【例1.8】立方阶示例</p>
+<p>与平方阶同理</p>
+<p>【例1.9】 对数阶示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i = <span class="number">1</span>;i &lt;= n;i = i * <span class="number">2</span>)&#123;</span><br><span class="line">    x ++;</span><br><span class="line">    s = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面程序段基本语句执行次数设为f(n)，则<code> i = i * 2;</code> 语句执行了f(n)次，此时 i = 2^f(n)，也就是说，2^f(n) &lt; n，所以<code>f(n) = log_2 n </code>，所以算法的实践复杂度为T(n) = O(logn)，称为对数阶。</p>
+<ol start="4">
+<li>最好、最坏和平均时间复杂度<br>在有些算法中，比如查找算法中，查找语句的执行次数是不确定的，因此，需要引入最好、最坏和平均时间复杂度。以在数组中查找元素为例：<code>int arr[8] = &#123;12, 23, 32, 34, 54, 45, 56, 67&#125;;</code> 如果以顺序查找法查找12，那么第一次就能够找到，查找语句只需要执行一次，这就是最好时间复杂度，但是如果去查找67，则需要遍历全部数组元素才能够找到，这就是最坏时间复杂度。</li>
+</ol>
+<p><strong>算法平均复杂度</strong> 是指算法在所有可能情况下，按照输入实例以等概率出现时，算法计算量的加权平均值。<br><strong>注</strong> 通常只讨论算法在最坏情况下的时间复杂度。</p>
+<h3 id="算法的空间复杂度"><a href="#算法的空间复杂度" class="headerlink" title="算法的空间复杂度"></a>算法的空间复杂度</h3><p><strong>空间复杂度</strong> 就是算法在执行过程中所需要的存储空间</p>
+<p><strong>原地工作</strong> 若算法执行时所需要的辅助空间相对于输入数据量而言是一个常数，则称这个算法为原地工作。辅助空间为O(1)。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/KLEricLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/可乐">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/可乐klelee">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/Eric Lee">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/klvie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://klelee.com">klvie</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

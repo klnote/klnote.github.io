@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="作为可乐klelee的笔记站，来记录可乐的各种笔记">
+    <meta name="keyword"  content="编程 Archlinux Linux">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        ArchLinux安装 - klelee笔记
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> klelee/klnote </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>可乐klelee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%BC%95%E5%AF%BC%E6%A8%A1%E5%BC%8F"><span class="toc-text">验证引导模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E5%88%B0%E5%9B%A0%E7%89%B9%E7%BD%91"><span class="toc-text">连接到因特网</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1%E6%98%AF%E5%90%A6%E8%A2%AB%E9%94%81"><span class="toc-text">判断无线网卡是否被锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C"><span class="toc-text">连接网络</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E4%B8%BA%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-text">更新为国内镜像源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4"><span class="toc-text">更新系统时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87ssh%E9%93%BE%E6%8E%A5%E5%BD%93%E5%89%8D%E4%B8%BB%E6%9C%BA%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">通过ssh链接当前主机（可选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA"><span class="toc-text">磁盘分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%88%86%E5%8C%BA"><span class="toc-text">格式化分区</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EFI%E5%88%86%E5%8C%BA%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">EFI分区格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root%E5%88%86%E5%8C%BA%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">root分区格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAswap%E5%88%86%E5%8C%BA"><span class="toc-text">创建swap分区</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA"><span class="toc-text">挂载分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F"><span class="toc-text">安装系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%A1%A8%E6%96%87%E4%BB%B6"><span class="toc-text">生成文件系统的表文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="toc-text">进入新系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-text">设置时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="toc-text">本地化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E8%AF%AD%E8%A8%80"><span class="toc-text">设置系统语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%AC%E5%9C%B0%E8%AF%AD%E8%A8%80%E4%BF%A1%E6%81%AF"><span class="toc-text">生成本地语言信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%9C%AC%E5%9C%B0%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">设置本地语言环境变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-text">网络配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E8%AE%BE%E7%BD%AE"><span class="toc-text">主机设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%B9%E5%BA%94%E7%9A%84hosts"><span class="toc-text">生成对应的hosts</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%9B%B8%E5%85%B3%E5%8C%85"><span class="toc-text">安装相关包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEgrub"><span class="toc-text">配置grub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%90%AF%E7%94%A8NetworkManager"><span class="toc-text">激活启用NetworkManager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99root%E7%94%A8%E6%88%B7%E5%BB%BA%E7%AB%8B%E5%AF%86%E7%A0%81"><span class="toc-text">给root用户建立密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%90%AF"><span class="toc-text">重启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-text">基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1%E8%81%94%E7%BD%91"><span class="toc-text">再次联网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1ssh%E8%BF%9E%E6%8E%A5"><span class="toc-text">再次ssh连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85openssh"><span class="toc-text">安装openssh</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8ssh%E6%9C%8D%E5%8A%A1"><span class="toc-text">启动ssh服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8Dip%E5%9C%B0%E5%9D%80"><span class="toc-text">查看当前ip地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9ssh%E9%85%8D%E7%BD%AE"><span class="toc-text">修改ssh配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%85%B6%E4%BB%96%E7%AB%AF%E8%BF%9B%E8%A1%8C%E8%BF%9E%E6%8E%A5"><span class="toc-text">在其他端进行连接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEbash-shell%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">配置bash shell环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%A0%87%E5%87%86%E7%94%A8%E6%88%B7-%E4%BB%A5%E4%B8%8Bklelee%E6%98%AF%E6%88%91%E7%9A%84%E7%94%A8%E6%88%B7%E5%90%8D"><span class="toc-text">添加标准用户(以下klelee是我的用户名)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-text">设置用户组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="toc-text">修改当前用户权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0ArchLinuxCN-%E5%AD%98%E5%82%A8%E5%BA%93"><span class="toc-text">添加ArchLinuxCN 存储库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8"><span class="toc-text">显卡驱动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E5%8D%A1%E9%85%8D%E7%BD%AE"><span class="toc-text">声卡配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2"><span class="toc-text">图形界面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%9C%8D%E5%8A%A1"><span class="toc-text">显示服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93"><span class="toc-text">安装字体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8B%B1%E6%96%87%E5%AD%97%E4%BD%93"><span class="toc-text">英文字体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93"><span class="toc-text">中文字体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%AD%97%E4%BD%93%E5%BC%95%E6%93%8E"><span class="toc-text">打开字体引擎</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%EF%BC%88KDE%EF%BC%89"><span class="toc-text">安装桌面环境（KDE）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#KDE"><span class="toc-text">KDE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEsddm%E7%99%BB%E5%BD%95"><span class="toc-text">设置sddm登录</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="toc-text">常用软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-text">中文输入法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6"><span class="toc-text">其他软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98"><span class="toc-text">清理缓存</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> klelee/klnote </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        ArchLinux安装
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-11-15 19:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#ArchLinux" title="ArchLinux">ArchLinux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>首先通过安装介质启动到live环境。选第一个</p>
+<p><img src="../img/archlinux_install_imgs/boot%E9%80%89%E9%A1%B9.png"></p>
+<p>会以root身份进入一个虚拟控制台中，默认的shell是zsh。</p>
+<h3 id="验证引导模式"><a href="#验证引导模式" class="headerlink" title="验证引导模式"></a>验证引导模式</h3><p><code>ls /sys/firmware/efi/efivars</code> 如果结果显示了目录且没有报告错误，则系统是以 UEFI 模式引导的。</p>
+<p><img src="../img/archlinux_install_imgs/%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%E7%A1%AE%E8%AE%A4.png"></p>
+<h3 id="连接到因特网"><a href="#连接到因特网" class="headerlink" title="连接到因特网"></a>连接到因特网</h3><h4 id="判断无线网卡是否被锁"><a href="#判断无线网卡是否被锁" class="headerlink" title="判断无线网卡是否被锁"></a>判断无线网卡是否被锁</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> rfkill list</span>  </span><br><span class="line">--------------</span><br><span class="line">0: phy0: Wireless LAN</span><br><span class="line">	Soft blocked: yes</span><br><span class="line">	Hard blocked: yes</span><br></pre></td></tr></table></figure>
+
+<p>如果出现以上内容，可以调节网卡开关打开它。如果没有开关，那就使用以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> rfkill unblock wifi</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="连接网络"><a href="#连接网络" class="headerlink" title="连接网络"></a>连接网络</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> iwctl   //会进入联网模式</span></span><br><span class="line"><span class="meta">[iwd]#</span><span class="bash"> <span class="built_in">help</span>    //可以查看帮助</span></span><br><span class="line"><span class="meta">[iwd]#</span><span class="bash"> device list    //列出你的无线设备名称，一般以wlan0命名</span></span><br><span class="line"><span class="meta">[iwd]#</span><span class="bash"> station &lt;device&gt; scan    //扫描当前环境下的网络</span></span><br><span class="line"><span class="meta">[iwd]#</span><span class="bash"> station &lt;device&gt; get-networks    //会显示你扫描到的所有网络</span></span><br><span class="line"><span class="meta">[iwd]#</span><span class="bash"> station &lt;device&gt; connect &lt;network name&gt;</span></span><br><span class="line">password:输入密码</span><br><span class="line"><span class="meta">[iwd]#</span><span class="bash"> <span class="built_in">exit</span>    //退出当前模式，回到安装模式</span></span><br></pre></td></tr></table></figure>
+
+<p>测试网络是否连通：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ping baidu.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新为国内镜像源"><a href="#更新为国内镜像源" class="headerlink" title="更新为国内镜像源"></a>更新为国内镜像源</h3><p><code>reflector --country China --age 72 --sort rate --protocol https --save /etc/pacman.d/mirrorlist</code></p>
+<p>已将最新的镜像源更新为国内的，保存在/etc/pacman.d/mirrorlist目录下</p>
+<h3 id="更新系统时间"><a href="#更新系统时间" class="headerlink" title="更新系统时间"></a>更新系统时间</h3><p><code>timedatectl set-ntp true</code> 之后可以使用 <code>timedatectl status</code>检查服务状态</p>
+<h3 id="通过ssh链接当前主机（可选）"><a href="#通过ssh链接当前主机（可选）" class="headerlink" title="通过ssh链接当前主机（可选）"></a>通过ssh链接当前主机（可选）</h3><p>可以通过ssh在另外一台可以正常使用的设备上进行安装，方便命令复制</p>
+<ol>
+<li><p>在当前安装环境下输入<code>passwd</code> 为当前环境设置一个密码，不用太长，两三位就可以了。输入时不会显示。</p>
+</li>
+<li><p>执行<code>ip -brief address</code>查看当前ip地址，一般是192.168.&lt;…&gt;.&lt;…&gt; IP地址后面斜杠之后的掩码位不用哦</p>
+</li>
+<li><p>准备另外一台设备，应当使该设备与安装主机在同一局域网内，就是俩设备都连着同一个WiFi</p>
+<p>几种设备的连接方式：</p>
+<p>​    Windows：在终端输入：<code>ssh -o StrictHostKeyChecking=no root@&lt;刚刚查看的IP地址&gt;</code></p>
+<p>​    Linux&amp;macOS：在终端输入：<code>ssh -o StrictHostKeyChecking=no root@&lt;刚刚查看的IP地址&gt;</code></p>
+<p>​    当然也可以使用Android和ios设备，这里不说了，因为那玩意太小了，用来输入命令实在鸡肋</p>
+</li>
+</ol>
+<h3 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h3><p>安装archlinux所需分区</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EFI分区		300 MB</span><br><span class="line">swap分区		4GB</span><br><span class="line">root分区		剩余空间</span><br></pre></td></tr></table></figure>
+
+<p>使用cfdisk工具分区 <code>cfdisk &lt;install disk name &gt;</code> 比如我的： <code>cfdisk /dev/sda</code> 。之后会进入如下界面，选择gpt分区表：</p>
+<p><img src="../img/archlinux_install_imgs/%E5%88%86%E5%8C%BA%E8%A1%A8%E7%B1%BB%E5%9E%8B.png"></p>
+<p>之后就开始正式分区了，首先EFI分区，点击new新建：</p>
+<p><img src="../img/archlinux_install_imgs/%E6%96%B0%E5%BB%BA%E5%88%86%E5%8C%BAnew.png"></p>
+<p>这里输入300M，之后回车，就回到上面的界面了。</p>
+<p><img src="../img/archlinux_install_imgs/EFI%E5%88%86%E5%8C%BA300M.png"></p>
+<p>在建立下一个分区之前，先对第一个EFI分区的类型做一个修改，选择type选项</p>
+<p><img src="../img/archlinux_install_imgs/%E6%9B%B4%E6%94%B9EFI%E5%88%86%E5%8C%BA%E7%B1%BB%E5%9E%8B.png"></p>
+<p>重复之前的步骤，建立swap分区和root分区，完成之后如下图：</p>
+<p><img src="../img/archlinux_install_imgs/%E5%88%86%E5%AE%8C%E5%8C%BA%E4%B9%8B%E5%90%8E.png"></p>
+<h3 id="格式化分区"><a href="#格式化分区" class="headerlink" title="格式化分区"></a>格式化分区</h3><h4 id="EFI分区格式化"><a href="#EFI分区格式化" class="headerlink" title="EFI分区格式化"></a>EFI分区格式化</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.vfat /dev/sda1</span><br></pre></td></tr></table></figure>
+
+<h4 id="root分区格式化"><a href="#root分区格式化" class="headerlink" title="root分区格式化"></a>root分区格式化</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.xfs -f /dev/sda3</span><br><span class="line"># 强制分区为xfs</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建swap分区"><a href="#创建swap分区" class="headerlink" title="创建swap分区"></a>创建swap分区</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /dev/sda2</span><br></pre></td></tr></table></figure>
+
+<p>可以使用<code>lsblk -f</code>  查看磁盘分区情况</p>
+<h3 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sda3 /mnt</span><br><span class="line">mkdir -p /mnt/boot/efi</span><br><span class="line">mount /dev/vda1 /mnt/boot/efi</span><br><span class="line">swapon /dev/sda2</span><br><span class="line">lsblk -f    ## 查看分区g情况 </span><br></pre></td></tr></table></figure>
+
+<h3 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt linux linux-firmware linux-headers base base-devel vim git bash-completion</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成文件系统的表文件"><a href="#生成文件系统的表文件" class="headerlink" title="生成文件系统的表文件"></a>生成文件系统的表文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入新系统"><a href="#进入新系统" class="headerlink" title="进入新系统"></a>进入新系统</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地化"><a href="#本地化" class="headerlink" title="本地化"></a>本地化</h3><h4 id="设置系统语言"><a href="#设置系统语言" class="headerlink" title="设置系统语言"></a>设置系统语言</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/locale.gen</span><br></pre></td></tr></table></figure>
+
+<p>将以下两行取消注释(删除前面的井号)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">en_US.UTF-8 UTF-8</span><br><span class="line">zh_CN.UTF-8 UTF-8</span><br></pre></td></tr></table></figure>
+
+<h4 id="生成本地语言信息"><a href="#生成本地语言信息" class="headerlink" title="生成本地语言信息"></a>生成本地语言信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置本地语言环境变量"><a href="#设置本地语言环境变量" class="headerlink" title="设置本地语言环境变量"></a>设置本地语言环境变量</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/locale.conf</span><br><span class="line">-------------------------</span><br><span class="line">LANG=en_US.UTF-8</span><br></pre></td></tr></table></figure>
+
+<h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3><h4 id="主机设置"><a href="#主机设置" class="headerlink" title="主机设置"></a>主机设置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hostname</span><br><span class="line">---------------------</span><br><span class="line">archlinux(也可以写成你想要的主机名)</span><br></pre></td></tr></table></figure>
+
+<h4 id="生成对应的hosts"><a href="#生成对应的hosts" class="headerlink" title="生成对应的hosts"></a>生成对应的hosts</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br><span class="line">--------------------</span><br><span class="line">127.0.0.1	localhost</span><br><span class="line">::1			localhost</span><br><span class="line">127.0.1.1	archlinux.localdomain archlinux   # 这里的archlinux是主机名</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装相关包"><a href="#安装相关包" class="headerlink" title="安装相关包"></a>安装相关包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S grub efibootmgr efivar networkmanager intel-ucode</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置grub"><a href="#配置grub" class="headerlink" title="配置grub"></a>配置grub</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install /dev/sda</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<h3 id="激活启用NetworkManager"><a href="#激活启用NetworkManager" class="headerlink" title="激活启用NetworkManager"></a>激活启用NetworkManager</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable NetworkManager</span><br></pre></td></tr></table></figure>
+
+<h3 id="给root用户建立密码"><a href="#给root用户建立密码" class="headerlink" title="给root用户建立密码"></a>给root用户建立密码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br><span class="line">输入密码</span><br></pre></td></tr></table></figure>
+
+<h2 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line"></span><br><span class="line">umount /mnt/boot/efi</span><br><span class="line">umount /mnt</span><br><span class="line"></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><h3 id="再次联网"><a href="#再次联网" class="headerlink" title="再次联网"></a>再次联网</h3><p>输入<code>nmtui</code> 选择 “Activate a connection” 回车进入，选择你需要的网络，连接后back返回即可</p>
+<h3 id="再次ssh连接"><a href="#再次ssh连接" class="headerlink" title="再次ssh连接"></a>再次ssh连接</h3><h4 id="安装openssh"><a href="#安装openssh" class="headerlink" title="安装openssh"></a>安装openssh</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S openssh</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动ssh服务"><a href="#启动ssh服务" class="headerlink" title="启动ssh服务"></a>启动ssh服务</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看当前ip地址"><a href="#查看当前ip地址" class="headerlink" title="查看当前ip地址"></a>查看当前ip地址</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip -brief address</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改ssh配置"><a href="#修改ssh配置" class="headerlink" title="修改ssh配置"></a>修改ssh配置</h4><p>ssh默认无法连接root用户，需要修改其配置文件使其支持</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line">--------------------------------------</span><br><span class="line"># 将下列的语句值改为yes</span><br><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
+
+<p><img src="../img/archlinux_install_imgs/sshd_config_p.png"></p>
+<h4 id="在其他端进行连接"><a href="#在其他端进行连接" class="headerlink" title="在其他端进行连接"></a>在其他端进行连接</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o StrictHostKeyChecking=no root@&lt;刚刚查看的IP地址&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置bash-shell环境变量"><a href="#配置bash-shell环境变量" class="headerlink" title="配置bash shell环境变量"></a>配置bash shell环境变量</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/skel/.bashrc</span><br><span class="line">-------------------------------</span><br><span class="line"># 在alias行上面添加</span><br><span class="line">export EDITOR=vim</span><br><span class="line"></span><br><span class="line"># 继续添加</span><br><span class="line">alias grep=&#x27;grep --color=auto&#x27;</span><br><span class="line">alias egrep=&#x27;egrep --color=auto&#x27;</span><br><span class="line">alias fgrep=&#x27;fgrep --color=auto&#x27;</span><br><span class="line"></span><br><span class="line"># 在alias 之后添加脚本</span><br><span class="line">[ ! -e ~/.dircolors ] &amp;&amp; eval $(dircolors -p &gt; ~/.dircolors)</span><br><span class="line">[ -e /bin/dircolors ] &amp;&amp; eval $(dircolors -b ~/.dircolors)</span><br><span class="line"># 保存退出</span><br></pre></td></tr></table></figure>
+
+<p>随后将上述文件复制到home目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /etc/skel/.bashrc ~</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加标准用户-以下klelee是我的用户名"><a href="#添加标准用户-以下klelee是我的用户名" class="headerlink" title="添加标准用户(以下klelee是我的用户名)"></a>添加标准用户(以下klelee是我的用户名)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 添加用户</span><br><span class="line">useradd --create-home klelee</span><br><span class="line"># 设置密码</span><br><span class="line">passwd klelee</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置用户组"><a href="#设置用户组" class="headerlink" title="设置用户组"></a>设置用户组</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -aG wheel,users,storage,power,lp,adm,optical klelee</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改当前用户权限"><a href="#修改当前用户权限" class="headerlink" title="修改当前用户权限"></a>修改当前用户权限</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">visudo</span><br><span class="line">---------------------------------</span><br><span class="line"># 取消注释以下行</span><br><span class="line">%wheel ALL=(ALL) ALL</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加ArchLinuxCN-存储库"><a href="#添加ArchLinuxCN-存储库" class="headerlink" title="添加ArchLinuxCN 存储库"></a>添加ArchLinuxCN 存储库</h3><p>该仓库是由archlinux中文社区驱动的一个非官方的软件仓库。我们使用的很多软件都需要使用这个库去下载，比如typora。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 编辑/etc/pacman.conf</span><br><span class="line">vim /etc/pacman.conf</span><br><span class="line">--------------------------------------</span><br><span class="line"># 在最后添加</span><br><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch   </span><br><span class="line"># 这是中科大的源，你也可以选择清华、阿里等，当我推荐中科大，因为我喜欢</span><br></pre></td></tr></table></figure>
+
+<p>然后更新GPG密钥</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+<p><strong>注</strong> ： 如果以上更新密钥步骤出现错误，就是那种连着一串ERROR的情况，请执行以下步骤</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># rm -rf /etc/pacman.c/gnupg</span><br><span class="line"># pacman-key --init</span><br><span class="line"># pacman-key --populate archlinux archlinuxcn</span><br><span class="line"># pacman -Syy</span><br></pre></td></tr></table></figure>
+
+<h3 id="显卡驱动"><a href="#显卡驱动" class="headerlink" title="显卡驱动"></a>显卡驱动</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S xf86-video-intel vulkan-intel mesa</span><br></pre></td></tr></table></figure>
+
+<h3 id="声卡配置"><a href="#声卡配置" class="headerlink" title="声卡配置"></a>声卡配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S alsa-utils pulseaudio pulseaudio-bluetooth cups</span><br></pre></td></tr></table></figure>
+
+<h2 id="图形界面"><a href="#图形界面" class="headerlink" title="图形界面"></a>图形界面</h2><h3 id="显示服务"><a href="#显示服务" class="headerlink" title="显示服务"></a>显示服务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S xorg</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h3><h4 id="英文字体"><a href="#英文字体" class="headerlink" title="英文字体"></a>英文字体</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S ttf-dejavu ttf-droid ttf-hack ttf-font-awesome otf-font-awesome ttf-lato ttf-liberation ttf-linux-libertine ttf-opensans ttf-roboto ttf-ubuntu-font-family</span><br></pre></td></tr></table></figure>
+<h4 id="中文字体"><a href="#中文字体" class="headerlink" title="中文字体"></a>中文字体</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S ttf-hannom noto-fonts noto-fonts-extra noto-fonts-emoji noto-fonts-cjk adobe-source-code-pro-fonts adobe-source-sans-fonts adobe-source-serif-fonts adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts adobe-source-han-sans-tw-fonts adobe-source-han-serif-cn-fonts wqy-zenhei wqy-microhei</span><br></pre></td></tr></table></figure>
+
+<h4 id="打开字体引擎"><a href="#打开字体引擎" class="headerlink" title="打开字体引擎"></a>打开字体引擎</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile.d/freetype2.sh</span><br><span class="line">--------------------------------------------</span><br><span class="line"># 取消注释最后一句</span><br><span class="line">export FREETYPE_PROPERTIES=&quot;truetype:interpreter-version=40&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装桌面环境（KDE）"><a href="#安装桌面环境（KDE）" class="headerlink" title="安装桌面环境（KDE）"></a>安装桌面环境（KDE）</h3><h4 id="KDE"><a href="#KDE" class="headerlink" title="KDE"></a>KDE</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S plasma sddm konsole dolphin kate ark okular spectacle yay</span><br></pre></td></tr></table></figure>
+
+<p>plasma：就是桌面环境</p>
+<p>sddm：登录管理器</p>
+<p>konsole：kde下的终端</p>
+<p>kate：文本编辑器</p>
+<p>ark：解压与压缩</p>
+<p>okular：PDF查看器</p>
+<p>spectacle：截图工具</p>
+<p>AUR：管理工具</p>
+<h4 id="设置sddm登录"><a href="#设置sddm登录" class="headerlink" title="设置sddm登录"></a>设置sddm登录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable sddm</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h2><h3 id="中文输入法"><a href="#中文输入法" class="headerlink" title="中文输入法"></a>中文输入法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sudo pacman -S fcitx fcitx-im fcitx-configtool</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S fcitx-sogoupinyin</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.xprofile</span><br><span class="line">-------------------------------</span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure>
+
+<p>重启，这时候会看到系统托盘会有一个键盘的图标，我已经配置过了，这里显示的是sogou的图标</p>
+<p><img src="../img/archlinux_install_imgs/fcitx.png"></p>
+<p>右击那个图标，点击configure,在配置界面点加号</p>
+<p><img src="../img/archlinux_install_imgs/fcitx_configure.png"></p>
+<p>去掉“只显示当前语言”的选项，拉倒最下面选择sogoupinyin，之后回到上面的页面，选择美式键盘，删掉即可</p>
+<p><img src="../img/archlinux_install_imgs/fcitx_1.png"></p>
+<h3 id="其他软件"><a href="#其他软件" class="headerlink" title="其他软件"></a>其他软件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S typora visual-studio-code-bin netease-cloud-music</span><br><span class="line">yay -S baidunetdisk-electron google-chrome qv2ray </span><br></pre></td></tr></table></figure>
+
+<p>更多软件可以去wiki寻找。</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Main_page_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">archlinux wiki</a></p>
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/List_of_applications_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">List of applications</a></p>
+<h3 id="清理缓存"><a href="#清理缓存" class="headerlink" title="清理缓存"></a>清理缓存</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Scc</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/KLEricLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/可乐">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/可乐klelee">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/Eric Lee">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/klvie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://klelee.com">klvie</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

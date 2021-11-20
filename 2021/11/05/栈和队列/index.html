@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="作为可乐klelee的笔记站，来记录可乐的各种笔记">
+    <meta name="keyword"  content="编程 Archlinux Linux">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        栈和队列 - klelee笔记
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> klelee/klnote </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>可乐klelee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97"><span class="toc-text">栈和队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%89%B9%E7%82%B9"><span class="toc-text">3.1 栈和队列的定义和特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%89%B9%E7%82%B9"><span class="toc-text">3.1.1 栈的定义和特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%89%B9%E7%82%B9"><span class="toc-text">3.1.2 队列的定义和特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%A1%88%E4%BE%8B%E5%BC%95%E5%85%A5"><span class="toc-text">3.2 案例引入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B3-1-%E6%95%B0%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">案例3.1 数制的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B3-2-%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-text">案例3.2 括号匹配的检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B3-3-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC"><span class="toc-text">案例3.3 表达式求值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B3-4-%E8%88%9E%E4%BC%B4%E9%97%AE%E9%A2%98"><span class="toc-text">案例3.4 舞伴问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%A0%88%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E6%93%8D%E4%BD%9C%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.3 栈的表示和操作的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E6%A0%88%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="toc-text">3.3.1 栈的类型定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-text">顺序栈的表示和实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-1-%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">算法3.1 顺序栈的初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-text">几个简单的算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-2-%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E5%85%A5%E6%A0%88"><span class="toc-text">算法3.2 顺序栈的入栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-3-%E9%A1%BA%E5%BA%8F%E6%A0%88%E7%9A%84%E5%87%BA%E6%A0%88"><span class="toc-text">算法3.3 顺序栈的出栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-4-%E5%8C%BA%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0"><span class="toc-text">算法3.4 区栈顶元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%A0%88%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-text">链栈的表示和实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-5-%E9%93%BE%E6%A0%88%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">算法3.5 链栈的初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-6-%E9%93%BE%E6%A0%88%E7%9A%84%E5%85%A5%E6%A0%88"><span class="toc-text">算法3.6 链栈的入栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-7-%E9%93%BE%E6%A0%88%E7%9A%84%E5%87%BA%E6%A0%88"><span class="toc-text">算法3.7 链栈的出栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-8-%E5%8F%96%E6%A0%88%E9%A1%B6%E5%85%83%E7%B4%A0"><span class="toc-text">算法3.8 取栈顶元素</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E6%A0%88%E4%B8%8E%E9%80%92%E5%BD%92"><span class="toc-text">3.4 栈与递归</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-1-%E9%87%87%E7%94%A8%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">3.4.1 采用递归算法解决的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-9-%E9%81%8D%E5%8E%86%E8%BE%93%E5%87%BA%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%90%84%E4%B8%AA%E7%BB%93%E7%82%B9%E7%9A%84%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95"><span class="toc-text">算法3.9 遍历输出链表中各个结点的递归算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-10-Hanoi%E5%A1%94%E9%97%AE%E9%A2%98%E7%9A%84%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95"><span class="toc-text">算法3.10 Hanoi塔问题的递归算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-2-%E9%80%92%E5%BD%92%E8%BF%87%E7%A8%8B%E4%B8%8E%E9%80%92%E5%BD%92%E5%B7%A5%E4%BD%9C%E6%A0%88"><span class="toc-text">3.4.2 递归过程与递归工作栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-3-%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95%E7%9A%84%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90"><span class="toc-text">3.4.3 递归算法的效率分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-4-%E5%88%A9%E7%94%A8%E6%A0%88%E5%B0%86%E9%80%92%E5%BD%92%E8%BD%AC%E6%8D%A2%E4%B8%BA%E9%9D%9E%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95"><span class="toc-text">3.4.4 利用栈将递归转换为非递归算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E9%98%9F%E5%88%97%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E6%93%8D%E4%BD%9C%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.5 队列的表示和操作的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-1-%E9%98%9F%E5%88%97%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="toc-text">3.5.1 队列类型定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-2-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94%E9%98%9F%E5%88%97%E7%9A%84%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.5.2 循环队列——队列的顺序表示和实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-11-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">算法3.11 循环队列的初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-12-%E6%B1%82%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="toc-text">算法3.12 求循环队列的长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-13-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%85%A5%E9%98%9F"><span class="toc-text">算法3.13 循环队列的入队</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-14-%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%87%BA%E9%98%9F"><span class="toc-text">算法3.14 循环队列的出队</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-15-%E5%8F%96%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E7%9A%84%E5%A4%B4%E5%85%83%E7%B4%A0"><span class="toc-text">算法3.15 取循环队列的头元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-3-%E9%93%BE%E9%98%9F%E2%80%94%E2%80%94%E9%98%9F%E5%88%97%E7%9A%84%E9%93%BE%E5%BC%8F%E8%A1%A8%E7%A4%BA%E5%92%8C%E5%AE%9E%E7%8E%B0"><span class="toc-text">3.5.3 链队——队列的链式表示和实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-16-%E9%93%BE%E9%98%9F%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">算法3.16 链队的初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%93%BE%E9%98%9F%E5%88%97%E7%9A%84%E9%94%80%E6%AF%81"><span class="toc-text">链队列的销毁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-17-%E9%93%BE%E9%98%9F%E7%9A%84%E5%85%A5%E9%98%9F"><span class="toc-text">算法3.17 链队的入队</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-18-%E9%93%BE%E9%98%9F%E7%9A%84%E5%87%BA%E9%98%9F"><span class="toc-text">算法3.18 链队的出队</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%953-19-%E5%8F%96%E9%93%BE%E9%98%9F%E7%9A%84%E9%98%9F%E5%A4%B4%E5%85%83%E7%B4%A0"><span class="toc-text">算法3.19 取链队的队头元素</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> klelee/klnote </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        栈和队列
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-11-05 19:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#数据结构" title="数据结构">数据结构</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><h2 id="3-1-栈和队列的定义和特点"><a href="#3-1-栈和队列的定义和特点" class="headerlink" title="3.1 栈和队列的定义和特点"></a>3.1 栈和队列的定义和特点</h2><h3 id="3-1-1-栈的定义和特点"><a href="#3-1-1-栈的定义和特点" class="headerlink" title="3.1.1 栈的定义和特点"></a>3.1.1 栈的定义和特点</h3><p>定义：</p>
+<p><strong>栈</strong> 是限定仅在表尾进行插入或删除操作的线性表。所以一般称表尾为<strong>栈顶</strong>，表头为<strong>栈底</strong>。 不含元素的空表称为<strong>空栈</strong>。</p>
+<p>特点：</p>
+<p>先进后出</p>
+<h3 id="3-1-2-队列的定义和特点"><a href="#3-1-2-队列的定义和特点" class="headerlink" title="3.1.2 队列的定义和特点"></a>3.1.2 队列的定义和特点</h3><p>定义：</p>
+<p><strong>队列</strong> 只允许在表的一端插入，而在另外一段删除元素。允许插入的一段称为队尾，允许删除的一端称为队头。</p>
+<p>特点：</p>
+<p>先进先出</p>
+<h2 id="3-2-案例引入"><a href="#3-2-案例引入" class="headerlink" title="3.2 案例引入"></a>3.2 案例引入</h2><h3 id="案例3-1-数制的转换"><a href="#案例3-1-数制的转换" class="headerlink" title="案例3.1 数制的转换"></a>案例3.1 数制的转换</h3><h3 id="案例3-2-括号匹配的检验"><a href="#案例3-2-括号匹配的检验" class="headerlink" title="案例3.2 括号匹配的检验"></a>案例3.2 括号匹配的检验</h3><h3 id="案例3-3-表达式求值"><a href="#案例3-3-表达式求值" class="headerlink" title="案例3.3 表达式求值"></a>案例3.3 表达式求值</h3><h3 id="案例3-4-舞伴问题"><a href="#案例3-4-舞伴问题" class="headerlink" title="案例3.4 舞伴问题"></a>案例3.4 舞伴问题</h3><h2 id="3-3-栈的表示和操作的实现"><a href="#3-3-栈的表示和操作的实现" class="headerlink" title="3.3 栈的表示和操作的实现"></a>3.3 栈的表示和操作的实现</h2><h3 id="3-3-1-栈的类型定义"><a href="#3-3-1-栈的类型定义" class="headerlink" title="3.3.1 栈的类型定义"></a>3.3.1 栈的类型定义</h3><p>一些基本操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Initstack(&amp;S)    //构造一个空栈</span><br><span class="line">DestoryStack(&amp;S)    //销毁栈S</span><br><span class="line">ClearStack(&amp;S)    //清空栈</span><br><span class="line">StackEmpty(S)    //判断栈是否为空</span><br><span class="line">StackLength(S)    // 返回S的元素个数</span><br><span class="line">GetTop(S)    //返回S的栈顶元素</span><br><span class="line">Push(&amp;S,e)    //插入元素e为新的栈顶元素</span><br><span class="line">Pop(&amp;S,&amp;e)    //提出栈顶元素，用e返回</span><br><span class="line">StackTraverse(S)    //从栈底到栈顶依次对S的每个元素进行访问</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序栈的表示和实现"><a href="#顺序栈的表示和实现" class="headerlink" title="顺序栈的表示和实现"></a>顺序栈的表示和实现</h3><p><strong>顺序栈</strong> 是指利用顺序存储结构实现的栈，同时附设top指针指示栈顶元素在顺序栈中的位置，附设base指针指向栈底元素所在的位置。当top = base 时表示空栈。</p>
+<p>顺序栈的定义如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//--------顺序栈的存储结构--------</span><br><span class="line">#define MAXSIZE 100</span><br><span class="line">typedef strust&#123;</span><br><span class="line">    SElemType *base;</span><br><span class="line">    SElemType *top;</span><br><span class="line">    int stacksize;</span><br><span class="line">&#125;SqStack;</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明</strong></p>
+<ol>
+<li>栈底指针base始终指向栈底的位置，如果base的值为NULL，则说明栈结构式不存在的。top的初值指向栈底，每增加一个元素，top加一，删除一个元素top减一，top = base时空栈。</li>
+<li>stacksize指示栈可以使用的最大容量。</li>
+</ol>
+<h4 id="算法3-1-顺序栈的初始化"><a href="#算法3-1-顺序栈的初始化" class="headerlink" title="算法3.1 顺序栈的初始化"></a>算法3.1 顺序栈的初始化</h4><p>【算法步骤】</p>
+<ol>
+<li>为顺序栈动态分配一个最大容量为MAXSIZE的数组空间，是base指向这段空间的基地址，即栈底。</li>
+<li>栈顶指针top初始为base，即空栈</li>
+<li>stacksize置为栈的最大容量。</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">InitStack</span><span class="params">(SqStack &amp;S)</span></span>&#123;<span class="comment">//构造一个空栈S</span></span><br><span class="line">    S.base = <span class="keyword">new</span> SElemType[MAXSIZE];</span><br><span class="line">    <span class="keyword">if</span>(!S.basu)&#123;<span class="comment">//判断是否开辟空间成功</span></span><br><span class="line">        <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">    &#125;<span class="comment">//endif</span></span><br><span class="line">    S.top = S.base;</span><br><span class="line">    S.stacksize = MAXSIZE;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="几个简单的算法"><a href="#几个简单的算法" class="headerlink" title="几个简单的算法"></a>几个简单的算法</h4><ol>
+<li>判断栈是否为空</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">StackEmpty</span><span class="params">(SqStack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.top = S.base)&#123;</span><br><span class="line">        <span class="keyword">return</span> TURE;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> FALSE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>求栈的长度</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">StackLength</span><span class="params">(SqStack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> S.top - S.base</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>清空顺序栈</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">ClearStack</span><span class="params">(SqStack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.base)&#123;</span><br><span class="line">        S.top = S.base;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>销毁栈</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">DestoryStack</span><span class="params">(SqStack &amp;S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.base)&#123;</span><br><span class="line">        <span class="keyword">delete</span> S.base;</span><br><span class="line">        S.stacksize = <span class="number">0</span>;</span><br><span class="line">        S.top = S.base = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-2-顺序栈的入栈"><a href="#算法3-2-顺序栈的入栈" class="headerlink" title="算法3.2 顺序栈的入栈"></a>算法3.2 顺序栈的入栈</h4><p>【算法步骤】</p>
+<ol>
+<li>判断栈是否满，若栈满则返回ERROR</li>
+<li>将新元素压入栈顶，栈顶指针加一</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">push</span><span class="params">(SqStack &amp;S, SElemType e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.top - S.base == S.stacksize)&#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    *S.top = e;</span><br><span class="line">    top ++;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-3-顺序栈的出栈"><a href="#算法3-3-顺序栈的出栈" class="headerlink" title="算法3.3 顺序栈的出栈"></a>算法3.3 顺序栈的出栈</h4><p>【算法步骤】</p>
+<ol>
+<li>判断栈是否为空，为空返回ERROR</li>
+<li>栈顶指针减一，栈顶元素出栈</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">Pop</span><span class="params">(SqStack &amp;S, SElemType e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.top == S.base)&#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    S.top--;</span><br><span class="line">    e = *S.top;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-4-区栈顶元素"><a href="#算法3-4-区栈顶元素" class="headerlink" title="算法3.4 区栈顶元素"></a>算法3.4 区栈顶元素</h4><p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SElemType <span class="title">GetTop</span><span class="params">(SqStack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.top != S.base)&#123;</span><br><span class="line">        <span class="keyword">return</span> *(--S.top);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="链栈的表示和实现"><a href="#链栈的表示和实现" class="headerlink" title="链栈的表示和实现"></a>链栈的表示和实现</h3><p><strong>链栈</strong> 是指采用链式存储结构的栈。</p>
+<p>链栈结构的定义：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-----链栈的存储结构-----</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">StackNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">StackNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;StackNode,*LinkStack;</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明</strong></p>
+<p>和链表相同，这里StackNode和*LinkStack本质上是一样的，习惯上使用StackNode 来定义结点，使用LinkStack来定义链表。</p>
+<h4 id="算法3-5-链栈的初始化"><a href="#算法3-5-链栈的初始化" class="headerlink" title="算法3.5 链栈的初始化"></a>算法3.5 链栈的初始化</h4><p>【算法步骤】</p>
+<p>链栈的初始化就是构造一个空栈，由于没有必要设头节点，所以直接将栈顶指针置空即可。</p>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">InitStack</span><span class="params">(LinkStack &amp;S)</span></span>&#123;</span><br><span class="line">    S = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-6-链栈的入栈"><a href="#算法3-6-链栈的入栈" class="headerlink" title="算法3.6 链栈的入栈"></a>算法3.6 链栈的入栈</h4><p>【算法步骤】</p>
+<ol>
+<li>为入栈元素e分配空间，用指针p指向</li>
+<li>将新结点的数据域置为e</li>
+<li>将新结点插入栈顶</li>
+<li>修改栈顶指针为p</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">Push</span><span class="params">(LinkStack &amp;S,SElemType e)</span></span>&#123;</span><br><span class="line">    p = <span class="keyword">new</span> StackNode;</span><br><span class="line">    p -&gt; data = e;</span><br><span class="line">    p -&gt; next = S;</span><br><span class="line">    S = p;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-7-链栈的出栈"><a href="#算法3-7-链栈的出栈" class="headerlink" title="算法3.7 链栈的出栈"></a>算法3.7 链栈的出栈</h4><p>【算法步骤】</p>
+<ol>
+<li>判断栈是否为空，若空则返回ERROR</li>
+<li>将栈顶元素赋值给e</li>
+<li>临时保存栈顶元素的空间，以备释放</li>
+<li>修改栈顶指针，指向新的栈顶元素</li>
+<li>释放原栈顶元素的空间</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">Pop</span><span class="params">(LinkStack &amp;S, SElemType &amp;e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S = <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    e = S -&gt; data;</span><br><span class="line">    p = S;    <span class="comment">//用p临时保存栈顶元素空间，以备释放</span></span><br><span class="line">    S = S -&gt; next;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-8-取栈顶元素"><a href="#算法3-8-取栈顶元素" class="headerlink" title="算法3.8 取栈顶元素"></a>算法3.8 取栈顶元素</h4><p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SElemType <span class="title">GetTop</span><span class="params">(LinkStack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> S -&gt; data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-栈与递归"><a href="#3-4-栈与递归" class="headerlink" title="3.4 栈与递归"></a>3.4 栈与递归</h2><h3 id="3-4-1-采用递归算法解决的问题"><a href="#3-4-1-采用递归算法解决的问题" class="headerlink" title="3.4.1 采用递归算法解决的问题"></a>3.4.1 采用递归算法解决的问题</h3><p>若在一个函数、过程或者数据结构定义的内部又直接或间接的定义自身的应用，则称它们是递归的，或者是递归定义的。</p>
+<p>一、 定义是递归的</p>
+<p><strong>递归求解</strong> 对于一些负责的问题，若能分解成几个相对简单且解法相同或类似的子问题来解决便是递归求解。采用这种“分治法”进行递归求解的问题需要满足三个条件：</p>
+<ol>
+<li>能将一个问题转变成一个新问题，而新问题与原问题的解法相同或类同，不仅仅是处理对象，并且这些处理对象更小且变化有规律。</li>
+<li>可以通过上述问题转化而使问题简化。</li>
+<li>必须有一个明确的递归出口，或称递归的边界。</li>
+</ol>
+<p>“分治法”的一般形式是：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">p</span><span class="params">(参数表)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(递归结束条件成立)&#123;</span><br><span class="line">        可直接求解；</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        p(较小的参数)；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>二、 数据结构是递归的</p>
+<p>如链表的定义、链栈的定义这些都是递归定义的。</p>
+<h4 id="算法3-9-遍历输出链表中各个结点的递归算法"><a href="#算法3-9-遍历输出链表中各个结点的递归算法" class="headerlink" title="算法3.9 遍历输出链表中各个结点的递归算法"></a>算法3.9 遍历输出链表中各个结点的递归算法</h4><p>【算法步骤】</p>
+<ol>
+<li>如果输出p为NULL，递归结束返回</li>
+<li>否则输出p -&gt; data,p指向后继结点继续递归</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">TraverseList</span><span class="params">(LinkList p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p == <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p -&gt; data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        TraverseList(p -&gt; next);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>三、问题的解决方法是递归的</p>
+<p>Hanoi塔问题、八皇后问题、迷宫问题</p>
+<h4 id="算法3-10-Hanoi塔问题的递归算法"><a href="#算法3-10-Hanoi塔问题的递归算法" class="headerlink" title="算法3.10 Hanoi塔问题的递归算法"></a>算法3.10 Hanoi塔问题的递归算法</h4><p>【算法步骤】</p>
+<ol>
+<li>如果n = 1，则直接将编号为1的圆盘从A移动到C，递归结束</li>
+<li>否则<ol>
+<li>递归，将A上编号为1到n-1的圆盘移动到B，C做辅助塔</li>
+<li>直接将编号为n的圆盘从A移动到C</li>
+<li>递归，将B上编号为1至n-1的圆盘移动到C，A做辅助塔</li>
+</ol>
+</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hanoi</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">char</span> A, <span class="keyword">char</span> B, <span class="keyword">char</span> C)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">        move(A, <span class="number">1</span>, C);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        Hanoi(n<span class="number">-1</span>, A, C, B);</span><br><span class="line">        move(A, n, C);</span><br><span class="line">        Hanoi(n<span class="number">-1</span>, B, A, C)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-2-递归过程与递归工作栈"><a href="#3-4-2-递归过程与递归工作栈" class="headerlink" title="3.4.2 递归过程与递归工作栈"></a>3.4.2 递归过程与递归工作栈</h3><p>在高级语言编制的程序中，调用函数和被调用函数之间的链接及信息交换都需要通过栈来进行。</p>
+<p>一般，当一个函数在执行期间需要调用其他函数之前系统需要做一下事情：</p>
+<ol>
+<li>将所有的实参、返回地址等信息传递给被调用函数保存</li>
+<li>为被调用函数的局部变量分配存储区</li>
+<li>将控制转移到被调用函数的入口</li>
+</ol>
+<p>而从被调函数返回到调用函数之前，系统也应该完成以下任务：</p>
+<ol>
+<li>保存被调函数的计算结果</li>
+<li>释放被调函数的数据区</li>
+<li>依照被调函数保存的返回地址，将控制转移到调用函数</li>
+</ol>
+<p>当有多个函数嵌套调用时，应当遵循“后调用，先返回”的原则。</p>
+<p>每一层递归所需信息构成一个工作记录，其中包括所有的实参、所有的局部变量，以及上一层的返回地址。每进入一层递归，就产生一个新的工作记录压入栈顶。每退出一层递归，就从栈顶弹出一个工作记录。</p>
+<h3 id="3-4-3-递归算法的效率分析"><a href="#3-4-3-递归算法的效率分析" class="headerlink" title="3.4.3 递归算法的效率分析"></a>3.4.3 递归算法的效率分析</h3><ol>
+<li><p>时间复杂度</p>
+<p>当算法中包含递归调用时，其时间复杂度的分析可以转化为一个递归方程式的求解。迭代法是求解递归方程的一种常用方法。</p>
+</li>
+<li><p>空间复杂度</p>
+<p>在递归算法中所需的辅助空间就是一个递归工作站，其大小与n有关，所以空间复杂度大小为S(n) = O(n)</p>
+</li>
+</ol>
+<h3 id="3-4-4-利用栈将递归转换为非递归算法"><a href="#3-4-4-利用栈将递归转换为非递归算法" class="headerlink" title="3.4.4 利用栈将递归转换为非递归算法"></a>3.4.4 利用栈将递归转换为非递归算法</h3><p>利用栈消除递归过程的步骤：</p>
+<ol>
+<li>设置一个工作栈存放递归工作记录（包括实参、返回地址及局部变量等）。</li>
+<li>进入非递归调用入口（即被调程序开始处）将调用程序传来的实际参数和返回地址入栈（递归程序不可以作为主程序，因而可认为初始是被某个调用程序调用）。</li>
+<li>进入递归调用入口；当不满足递归结束条件时，逐层递归，将实参、返回地址及局部变量入栈，这一过程可以用循环语句来实现——模拟递归分解过程。</li>
+<li>递归结束条件结束后，将到达递归出口的给定常数作为当前的函数值。</li>
+<li>返回处理：在栈不空的情况下，反复退出栈顶记录，根据记录中的返回地址进行题意规定的操作，即逐层计算当前当前函数值，直至栈空为止——模拟递归求值过程。</li>
+</ol>
+<h2 id="3-5-队列的表示和操作的实现"><a href="#3-5-队列的表示和操作的实现" class="headerlink" title="3.5 队列的表示和操作的实现"></a>3.5 队列的表示和操作的实现</h2><h3 id="3-5-1-队列类型定义"><a href="#3-5-1-队列类型定义" class="headerlink" title="3.5.1 队列类型定义"></a>3.5.1 队列类型定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">基本操作：</span><br><span class="line">	InitQueue(&amp;Q)   //构造一个空队列</span><br><span class="line">	DestroyQueue(&amp;Q)    //销毁队列</span><br><span class="line">	ClearQueue(&amp;Q)    //清空队列</span><br><span class="line">	QueueEmpty(Q)    //判断队列是否为空</span><br><span class="line">	QueueLength(Q)    //获取队列的长度</span><br><span class="line">	GetHead(Q)    //获取队列的头元素</span><br><span class="line">	EnQueue(&amp;Q, e)    //插入元素e为队列的新队尾元素</span><br><span class="line">	DeQueue(&amp;Q, &amp;e)    //删除队列的队头元素，并用e返回</span><br><span class="line">	QueueTraverse(Q)    //遍历队列</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-2-循环队列——队列的顺序表示和实现"><a href="#3-5-2-循环队列——队列的顺序表示和实现" class="headerlink" title="3.5.2 循环队列——队列的顺序表示和实现"></a>3.5.2 循环队列——队列的顺序表示和实现</h3><p>队列也有两种存储方式，顺序表示和链式表示。</p>
+<p>在队列的顺序存储结构中，除了用一组连续的存储单元一次存储从队头到队尾的元素之外，尚需附设两个整型变量front和rear分别指示队列的头元素和尾元素（即头指针和尾指针）。队列的顺序存储结构如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-----队列的顺序存储结构-----</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    QElemType *base;    <span class="comment">//存储空间的基地址</span></span><br><span class="line">    <span class="keyword">int</span> front;</span><br><span class="line">    <span class="keyword">int</span> rear;</span><br><span class="line">&#125;SqQueue;</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明</strong></p>
+<p>为了在C语言中描述方便：初始化创建空队列时，令front = rear = 0，每当插入新的队尾元素，尾指针加一，每当删除一个队头元素时，头指针加一。</p>
+<p><strong>循环队列</strong></p>
+<p>通过取模，头指针和尾指针就可以在顺序表空间内以头尾衔接的方式“循环移动”。<code>Q.rear = (Q.rear + 1) % n</code> 。但如此的方法会无法判断队列空和队列满的情况，因此需要以下解决方案：</p>
+<ol>
+<li><p>少用一个元素空间，使得：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Q.front == Q.rear // 队空</span><br><span class="line">(Q.rear + 1) % MAXSIZE == Q.front    //队满</span><br></pre></td></tr></table></figure></li>
+<li><p>另设一个标志位以区别队列是否为空或满。</p>
+</li>
+</ol>
+<h4 id="算法3-11-循环队列的初始化"><a href="#算法3-11-循环队列的初始化" class="headerlink" title="算法3.11 循环队列的初始化"></a>算法3.11 循环队列的初始化</h4><p>【算法步骤】</p>
+<ol>
+<li>为队列分配一个最大容量为MAXSIZE的数组空间，base指向数组空间的首地址。</li>
+<li>头指针和尾指针为零，表示队列为空。</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">InitQueue</span><span class="params">(SqQueue &amp;Q)</span></span>&#123;</span><br><span class="line">    Q.base = <span class="keyword">new</span> QElemType[MAXSIZE];</span><br><span class="line">    <span class="keyword">if</span>(!Q.base)&#123;</span><br><span class="line">        <span class="built_in">exit</span>(OVERFLOW);</span><br><span class="line">    &#125;</span><br><span class="line">    Q.front = Q.rear = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-12-求循环队列的长度"><a href="#算法3-12-求循环队列的长度" class="headerlink" title="算法3.12 求循环队列的长度"></a>算法3.12 求循环队列的长度</h4><p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QueueLength</span><span class="params">(SqQueue Q)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (Q.rear - Q.front + MAXSIZE) % MAXSZIE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-13-循环队列的入队"><a href="#算法3-13-循环队列的入队" class="headerlink" title="算法3.13 循环队列的入队"></a>算法3.13 循环队列的入队</h4><p>【算法步骤】</p>
+<ol>
+<li>判断队列是否满，若满返回ERROR</li>
+<li>将新元素插入队尾</li>
+<li>队尾指针加一</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">EnQueue</span><span class="params">(SqQueue &amp;Q, QElemType e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((Q.rear + <span class="number">1</span>) % MAXSIZE == Q.front)&#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    Q.base[Q.rear] = e;</span><br><span class="line">    Q.rear = (Q.rear + <span class="number">1</span>) % MAXSIZE;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-14-循环队列的出队"><a href="#算法3-14-循环队列的出队" class="headerlink" title="算法3.14 循环队列的出队"></a>算法3.14 循环队列的出队</h4><p>【算法步骤】</p>
+<ol>
+<li>判断队列是否为空，若空则返回ERROR</li>
+<li>保存队头元素</li>
+<li>队头指针加一</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">DeQueue</span><span class="params">(SqQueue &amp;Q, QElemType &amp;e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.rear == Q.front)&#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    e = Q.base[Q.front];</span><br><span class="line">    Q.front = (Q.front + <span class="number">1</span>) % MAXSIZE;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-15-取循环队列的头元素"><a href="#算法3-15-取循环队列的头元素" class="headerlink" title="算法3.15 取循环队列的头元素"></a>算法3.15 取循环队列的头元素</h4><p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SElemType <span class="title">GetHead</span><span class="params">(SqQueue Q)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.front != Q.rear)&#123;</span><br><span class="line">        <span class="keyword">return</span> Q.base[Q.front];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-3-链队——队列的链式表示和实现"><a href="#3-5-3-链队——队列的链式表示和实现" class="headerlink" title="3.5.3 链队——队列的链式表示和实现"></a>3.5.3 链队——队列的链式表示和实现</h3><p>一个队列需要两个分别指示队头和队尾的指针才能唯一确定。为了方便起见需要给链队添加一个头节点，并令头指针始终指向头结点。链栈的存储结构表示如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-----队列的链式存储结构-----</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>&#123;</span></span><br><span class="line">    QElemType data;</span><br><span class="line">    Struct QNode *next;</span><br><span class="line">&#125;QNode, * QueuePtr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    QueuePtr front;</span><br><span class="line">    QueuPtr rear;</span><br><span class="line">&#125;LinkQueue;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-16-链队的初始化"><a href="#算法3-16-链队的初始化" class="headerlink" title="算法3.16 链队的初始化"></a>算法3.16 链队的初始化</h4><p>【算法步骤】</p>
+<ol>
+<li>生成新结点作为头结点，队头和队尾指针指向此结点。</li>
+<li>头结点的指针域置空</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">InitQueue</span><span class="params">(LinkQueue &amp;Q)</span></span>&#123;</span><br><span class="line">    Q.front = Q.rear = <span class="keyword">new</span> QNode;</span><br><span class="line">    Q.front -&gt; next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="链队列的销毁"><a href="#链队列的销毁" class="headerlink" title="链队列的销毁"></a>链队列的销毁</h4><p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">DestroyQueue</span><span class="params">(LinkQueue &amp;Q)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(Q.front)&#123;</span><br><span class="line">        p = Q.front -&gt; next;</span><br><span class="line">        <span class="keyword">delete</span> Q.front;</span><br><span class="line">        Q.front = p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-17-链队的入队"><a href="#算法3-17-链队的入队" class="headerlink" title="算法3.17 链队的入队"></a>算法3.17 链队的入队</h4><p>【算法描述】</p>
+<ol>
+<li>为入队元素分配结点空间，用指针p指向</li>
+<li>将新结点数据域置为e</li>
+<li>将新结点插入到队尾</li>
+<li>修改队尾指针为p</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">EnQueue</span><span class="params">(LinkQueue &amp;Q, QElemType e)</span></span>&#123;</span><br><span class="line">    p = <span class="keyword">new</span> QNode;</span><br><span class="line">    p -&gt; data = e;</span><br><span class="line">    p -&gt; next = <span class="literal">NULL</span>;</span><br><span class="line">    Q.rear -&gt; next = p;</span><br><span class="line">    Q.rear = p;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-18-链队的出队"><a href="#算法3-18-链队的出队" class="headerlink" title="算法3.18 链队的出队"></a>算法3.18 链队的出队</h4><p>【算法描述】</p>
+<ol>
+<li>判断队列是否为空，为空返回ERROR</li>
+<li>临时保存队头元素的空间，以备释放</li>
+<li>修改头结点的指针域，指向下一个结点</li>
+<li>判断出队元素是否为最后一个元素，若是，则将队尾指针重新赋值，指向头结点</li>
+<li>释放原队头元素的空间</li>
+</ol>
+<p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">DeQueue</span><span class="params">(LinkQueue &amp;Q, QElemType &amp;e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.front == Q.rear)&#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    p = Q.front -&gt; next;</span><br><span class="line">    e = p -&gt; data;</span><br><span class="line">    Q.front -&gt; next = p -&gt; next;</span><br><span class="line">    <span class="keyword">if</span>(Q.rear == p)&#123;</span><br><span class="line">        Q.rear = Q.front;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="算法3-19-取链队的队头元素"><a href="#算法3-19-取链队的队头元素" class="headerlink" title="算法3.19 取链队的队头元素"></a>算法3.19 取链队的队头元素</h4><p>【算法描述】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">SElemType <span class="title">GetHead</span><span class="params">(LinkQueue Q)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.front != Q.rear)&#123;</span><br><span class="line">        <span class="keyword">return</span> Q.front -&gt; next -&gt; data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/KLEricLee">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/可乐">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/可乐klelee">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/Eric Lee">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/klvie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://klelee.com">klvie</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
