@@ -64,8 +64,8 @@ search:
   field: post
 
 # 文章样式(是否首行缩进)：
-post_style:
-  indent: default
+# post_style:
+#   indent: default
 
 # Directory
 source_dir: source
